@@ -42,7 +42,7 @@ public class TrajectoryGen {
                 String[] line = {String.format("%.2f", waypoint.getTranslation().getX()),
                                  String.format("%.2f", waypoint.getTranslation().getY()),
                                  String.format("%.2f", waypoint.getRotation().getDegrees())};
-                csvWriter.writeNext(line);
+                csvWriter.writeNext(line, false);
             }
             try {
                 csvWriter.close();

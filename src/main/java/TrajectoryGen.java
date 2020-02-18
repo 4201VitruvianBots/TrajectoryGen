@@ -65,5 +65,17 @@ public class TrajectoryGen {
 
     public static void initializeTrajectories() {
         trajectories.put("driveStraight", new Trajectory("driveStraight", Trajectories.driveStraight));
+        trajectories.put("spline", new Trajectory("spline", Trajectories.spline));
+        trajectories.put("initiationToAllyTrench", new Trajectory("initiationToAllyTrench", Trajectories.initiationToAllyTrench));
+        trajectories.put("allyTrenchPickup", new Trajectory("allyTrenchPickup", Trajectories.allyTrenchPickup));
+        trajectories.put("rendezvous2", new Trajectory("rendezvous2", Trajectories.initiationToRendezvous2));
+        trajectories.put("rendezvous2Trench", new Trajectory("rendezvous2Trench", Trajectories.rendezvous2Trench));
+        trajectories.put("trench2Initiation", new Trajectory("trench2Initiation", Trajectories.trench2Initiation));
+
+
+        trajectories.put("enemyTrench", new Trajectory("enemyTrench", Trajectories.enemyTrench));
+        trajectories.put("backUp", new Trajectory("backUp", Trajectories.backUp));
+        trajectories.put("turnShoot", new Trajectory("turnShoot", Trajectories.turnShoot));
+        trajectories.put("driveShoot", new Trajectory("driveShoot", Trajectories.driveShoot));
     }
 }

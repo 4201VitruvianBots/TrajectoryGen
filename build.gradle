@@ -15,6 +15,6 @@ repositories {
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
 
-    compile group: 'edu.wpi.first.wpilibj', name: 'wpilibj-java', version: '2020.1.2'
+    compile group: 'edu.wpi.first.wpilibj', name: 'wpilibj-java', version: '2020.2.2'
     compile group: 'com.opencsv', name: 'opencsv', version: '5.0'
 }

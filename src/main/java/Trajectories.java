@@ -7,62 +7,49 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Trajectories {
+    //test
     public static ArrayList<Pose2d> driveStraight = new ArrayList<>(
         Arrays.asList(new Pose2d(0, 0, Rotation2d.fromDegrees(0)),
                       new Pose2d(5, 0, Rotation2d.fromDegrees(0)))
     );
 
-    public static ArrayList<Pose2d> spline = new ArrayList<>(
-        Arrays.asList(new Pose2d(0, 0, Rotation2d.fromDegrees(45)),
-                      new Pose2d(5, 5, Rotation2d.fromDegrees(45)))
+
+    //ally trench path
+    public static ArrayList<Pose2d> init1Ally2 = new ArrayList<>(
+        Arrays.asList(new Pose2d(0, 0, Rotation2d.fromDegrees(0)),
+                      new Pose2d(-10, 0, Rotation2d.fromDegrees(0)))
+    );
+    public static ArrayList<Pose2d> ally2Ally3 = new ArrayList<>(
+            Arrays.asList(new Pose2d(0, 0, Rotation2d.fromDegrees(0)),
+                    new Pose2d(-3, 0, Rotation2d.fromDegrees(0)))
+    );
+
+    //center path
+    public static ArrayList<Pose2d> init3Ren45 = new ArrayList<>(
+            Arrays.asList(new Pose2d(0, 0, Rotation2d.fromDegrees(0)),
+                    new Pose2d(-6.3, 0, Rotation2d.fromDegrees(25)))
+    );
+    public static ArrayList<Pose2d> ren45Pivot = new ArrayList<>(
+            Arrays.asList(new Pose2d(0, 0, Rotation2d.fromDegrees(0)),
+                    new Pose2d(5, 0, Rotation2d.fromDegrees(0)))
+    );
+    public static ArrayList<Pose2d> pivotRen3 = new ArrayList<>(
+            Arrays.asList(new Pose2d(0, 0, Rotation2d.fromDegrees(0)),
+                    new Pose2d(-5, -1.5, Rotation2d.fromDegrees(0)))
     );
 
 
-    public static ArrayList<Pose2d> initiationToRendezvous3 = new ArrayList<>(
+//for the enemy trench path
+    public static ArrayList<Pose2d> init4Enemy1 = new ArrayList<>(
             Arrays.asList(new Pose2d(0, 0, Rotation2d.fromDegrees(0)),
-                    new Pose2d(0, 0, Rotation2d.fromDegrees(0)))
+                    new Pose2d(-7.33, 0, Rotation2d.fromDegrees(0)))
     );
-    public static ArrayList<Pose2d> initiationToAllyTrench = new ArrayList<>(
+    public static ArrayList<Pose2d> enemy1Shooting1 = new ArrayList<>(
             Arrays.asList(new Pose2d(0, 0, Rotation2d.fromDegrees(0)),
-                    new Pose2d(8.25, 0, Rotation2d.fromDegrees(0)))
-    );
-    public static ArrayList<Pose2d> allyTrenchPickup = new ArrayList<>(
-            Arrays.asList(new Pose2d(0, 0, Rotation2d.fromDegrees(0)),
-                    new Pose2d(4.5, 0, Rotation2d.fromDegrees(15)))
-    );
-    public static ArrayList<Pose2d> initiationToRendezvous2 = new ArrayList<>(
-            Arrays.asList(new Pose2d(0, 0, Rotation2d.fromDegrees(0)),
-                    new Pose2d(5.5, 1, Rotation2d.fromDegrees(0)),
-                    new Pose2d(8.64, -0.44, Rotation2d.fromDegrees(-63)))
-    );
-    public static ArrayList<Pose2d> rendezvous2Trench = new ArrayList<>(
-            Arrays.asList(new Pose2d(0, 0, Rotation2d.fromDegrees(0)),
-                    new Pose2d(5.47, 6.08, Rotation2d.fromDegrees(0)))
-    );
-    public static ArrayList<Pose2d> trench2Initiation = new ArrayList<>(
-            Arrays.asList(new Pose2d(0, 0, Rotation2d.fromDegrees(0)),
-                    new Pose2d(-14.75, 0, Rotation2d.fromDegrees(720)))
-    );
-    public static ArrayList<Pose2d> enemyTrench = new ArrayList<>(
-            Arrays.asList(new Pose2d(0, 0, Rotation2d.fromDegrees(0)),
-                    new Pose2d(-9.5, 0, Rotation2d.fromDegrees(0)))
-    );
-    public static ArrayList<Pose2d> backUp = new ArrayList<>(
-            Arrays.asList(new Pose2d(0, 0, Rotation2d.fromDegrees(0)),
-                    new Pose2d(9.5, 0, Rotation2d.fromDegrees(0)))
-    );
-    public static ArrayList<Pose2d> turnShoot = new ArrayList<>(
-            Arrays.asList(new Pose2d(0, 0, Rotation2d.fromDegrees(0)),
-                    new Pose2d(3, -2.5, Rotation2d.fromDegrees(-100))
-                 //   new Pose2d(2.75, -10, Rotation2d.fromDegrees(45))
-            )
-
+                    //new Pose2d(5, -5, Rotation2d.fromDegrees(0)),
+                    new Pose2d(5, -12, Rotation2d.fromDegrees(0)))
     );
 
-    public static ArrayList<Pose2d> driveShoot = new ArrayList<>(
-            Arrays.asList(new Pose2d(0, 0, Rotation2d.fromDegrees(0)),
-                    new Pose2d(5, 5, Rotation2d.fromDegrees(0)))
-    );
 
 
 }

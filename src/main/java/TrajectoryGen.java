@@ -67,6 +67,7 @@ public class TrajectoryGen {
         trajectories.put("driveStraight", new Trajectory("driveStraight", Trajectories.driveStraight));
         trajectories.put("init1Ally2", new Trajectory("init1Ally2", Trajectories.init1Ally2));
         trajectories.put("ally2Ally3", new Trajectory("ally2Ally3", Trajectories.ally2Ally3));
+        trajectories.put("ally2init2", new Trajectory("ally2init2", Trajectories.ally2init2));
         trajectories.put("init4Enemy1", new Trajectory("init4Enemy1", Trajectories.init4Enemy1));
         trajectories.put("enemy1Shooting1", new Trajectory("enemy1Shooting1", Trajectories.enemy1Shooting1));
         trajectories.put("init3Ren45", new Trajectory("init3Ren45", Trajectories.init3Ren45));

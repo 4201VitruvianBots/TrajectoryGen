@@ -16,14 +16,14 @@ public class Trajectories {
     //ally trench path
     public static ArrayList<Pose2d> init1Ally2 = new ArrayList<>(
         Arrays.asList(new Pose2d(0, 0, Rotation2d.fromDegrees(0)),
-                      new Pose2d(-13, 0, Rotation2d.fromDegrees(0)))
+                      new Pose2d(-16, 0, Rotation2d.fromDegrees(0)))
     );
     public static ArrayList<Pose2d> ally2Ally3 = new ArrayList<>(
             Arrays.asList(new Pose2d(-13, 0, Rotation2d.fromDegrees(0)),
                           new Pose2d(-3, 3, Rotation2d.fromDegrees(0)))
     );
     public static ArrayList<Pose2d> ally2init2 = new ArrayList<>(
-            Arrays.asList(new Pose2d(-13, 0, Rotation2d.fromDegrees(0)),
+            Arrays.asList(new Pose2d(-16, 0, Rotation2d.fromDegrees(0)),
                           new Pose2d(-3, 0, Rotation2d.fromDegrees(0)))
     );
 

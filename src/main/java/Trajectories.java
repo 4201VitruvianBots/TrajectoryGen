@@ -15,11 +15,15 @@ public class Trajectories {
     //ally trench path
     public static ArrayList<Pose2d> init1Ally2 = new ArrayList<>(
         Arrays.asList(new Pose2d(0, 0, Rotation2d.fromDegrees(0)),
-                      new Pose2d(6, 0, Rotation2d.fromDegrees(0)))
+                      new Pose2d(-13, 0, Rotation2d.fromDegrees(0)))
     );
     public static ArrayList<Pose2d> ally2Ally3 = new ArrayList<>(
             Arrays.asList(new Pose2d(0, 0, Rotation2d.fromDegrees(0)),
                     new Pose2d(5, 2, Rotation2d.fromDegrees(0)))
+    );
+    public static ArrayList<Pose2d> ally2init2 = new ArrayList<>(
+            Arrays.asList(new Pose2d(-13, 0, Rotation2d.fromDegrees(0)),
+                    new Pose2d(-3, 0, Rotation2d.fromDegrees(0)))
     );
 
     //center path
@@ -40,14 +44,25 @@ public class Trajectories {
 //for the enemy trench path
     public static ArrayList<Pose2d> init4Enemy1 = new ArrayList<>(
             Arrays.asList(new Pose2d(0, 0, Rotation2d.fromDegrees(0)),
-                    new Pose2d(-7.33, 0, Rotation2d.fromDegrees(0)))
-    );
-    public static ArrayList<Pose2d> enemy1Shooting1 = new ArrayList<>(
-            Arrays.asList(new Pose2d(0, 0, Rotation2d.fromDegrees(0)),
-                    //new Pose2d(5, -5, Rotation2d.fromDegrees(0)),
-                    new Pose2d(5, -12, Rotation2d.fromDegrees(0)))
+                    new Pose2d(-7.5, 0, Rotation2d.fromDegrees(0)))
     );
 
+    public static ArrayList<Pose2d> init5Rendev1 = new ArrayList<>(
+            Arrays.asList(new Pose2d(0, -14.5, Rotation2d.fromDegrees(0)),
+                    new Pose2d(-7, -14.5, Rotation2d.fromDegrees(0)))
+    );
+    public static ArrayList<Pose2d> enemy1Shooting1 = new ArrayList<>(
+            Arrays.asList(new Pose2d(-7.5, 0, Rotation2d.fromDegrees(0)),
+                    //new Pose2d(-5.5, -5.5, Rotation2d.fromDegrees(11.5)),
+                    new Pose2d(-3, -11, Rotation2d.fromDegrees(23)))
+    );
+
+    public static ArrayList<Pose2d> shooting1Shooting2 = new ArrayList<>(
+            Arrays.asList(new Pose2d(0, 0, Rotation2d.fromDegrees(0)),
+    //new Pose2d(5, -5, Rotation2d.fromDegrees(0)),
+                    new Pose2d(-2.5, 0, Rotation2d.fromDegrees(0)))
+
+    );
 
 
 }

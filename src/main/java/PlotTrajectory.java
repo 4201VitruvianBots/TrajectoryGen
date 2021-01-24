@@ -95,12 +95,17 @@ public class PlotTrajectory {
 //                transformedPath5To6,
 //                transformedPath6To7
         };
+
+        plotTrajectories(trajectories);
+    }
+
+    public static void plotTrajectories(Trajectory... trajectories){
         double[][] xValues = new double[trajectories.length][];
         double[][] yValues = new double[trajectories.length][];
         double[][] time = new double[trajectories.length][];
 
         double lastTime = 0;
-        double sampleSize = 0.1;
+        double sampleSize = 0.01;
         for(int i = 0; i < trajectories.length; i++){
             double timestamp = 0;
             int idx = 0;
@@ -136,22 +141,22 @@ public class PlotTrajectory {
 
 
         Marker[] markers = {
-            SeriesMarkers.DIAMOND,
-            SeriesMarkers.CIRCLE,
-            SeriesMarkers.OVAL,
-            SeriesMarkers.SQUARE,
-            SeriesMarkers.TRAPEZOID,
-            SeriesMarkers.TRIANGLE_DOWN,
-            SeriesMarkers.TRIANGLE_UP
+                SeriesMarkers.DIAMOND,
+                SeriesMarkers.CIRCLE,
+                SeriesMarkers.OVAL,
+                SeriesMarkers.SQUARE,
+                SeriesMarkers.TRAPEZOID,
+                SeriesMarkers.TRIANGLE_DOWN,
+                SeriesMarkers.TRIANGLE_UP
         };
         Color[] colors = {
-            Color.BLACK,
-            Color.BLUE,
-            Color.CYAN,
-            Color.DARK_GRAY,
-            Color.GRAY,
-            Color.GREEN,
-            Color.LIGHT_GRAY
+                Color.BLACK,
+                Color.BLUE,
+                Color.CYAN,
+                Color.DARK_GRAY,
+                Color.GRAY,
+                Color.GREEN,
+                Color.LIGHT_GRAY
         };
 //        Color[] colors = {
 //            Color.getHSBColor(30, (float) 100.0, (float)   0.0),

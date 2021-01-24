@@ -10,11 +10,20 @@ sourceCompatibility = 1.8
 repositories {
     mavenCentral()
     maven { url 'https://frcmaven.wpi.edu/artifactory/release/' }
+    maven { url 'https://frcmaven.wpi.edu/artifactory/release/' }
+    maven { url 'https://frcmaven.wpi.edu/artifactory/development/' }
+    maven { url 'https://mvnrepository.com/artifact/'}
 }
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
 
-    compile group: 'edu.wpi.first.wpilibj', name: 'wpilibj-java', version: '2020.2.2'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.12.1'
+
+    compile group: 'edu.wpi.first.wpilibj', name: 'wpilibj-java', version: '2021.1.2'
+    compile group: 'edu.wpi.first.wpimath', name: 'wpimath-java', version: '2021.1.2'
+//    compile group: 'org.knowm.xchart', name: 'xchart-parent', version: '3.8.0'
+    compile group: 'org.knowm.xchart', name: 'xchart', version: '3.8.0'
+    compile group: 'org.ejml', name: 'ejml-simple', version: '0.40'
     compile group: 'com.opencsv', name: 'opencsv', version: '5.0'
 }

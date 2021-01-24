@@ -1,14 +1,16 @@
 import com.opencsv.CSVWriter;
 import edu.wpi.first.wpilibj.geometry.Pose2d;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
 public class TrajectoryGen {
-    static Map<String, Trajectory> trajectories = new HashMap<>();
+    static Map<String, AutoPath> trajectories = new HashMap<>();
     static long startTime;
     static int index = 0;
 
@@ -64,17 +66,13 @@ public class TrajectoryGen {
     }
 
     public static void initializeTrajectories() {
-        trajectories.put("driveStraight", new Trajectory("driveStraight", Trajectories.driveStraight));
-        trajectories.put("init1Ally2", new Trajectory("init1Ally2", Trajectories.init1Ally2));
-        trajectories.put("ally2Ally3", new Trajectory("ally2Ally3", Trajectories.ally2Ally3));
-        trajectories.put("init4Enemy1", new Trajectory("init4Enemy1", Trajectories.init4Enemy1));
-        trajectories.put("enemy1Shooting1", new Trajectory("enemy1Shooting1", Trajectories.enemy1Shooting1));
-        trajectories.put("init3Ren45", new Trajectory("init3Ren45", Trajectories.init3Ren45));
-        trajectories.put("ren45Pivot", new Trajectory("ren45Pivot", Trajectories.ren45Pivot));
-        trajectories.put("pivotRen3", new Trajectory("pivotRen3", Trajectories.pivotRen3));
-
-
-
-
+        trajectories.put("driveStraight", new AutoPath("driveStraight", Trajectories.driveStraight));
+        trajectories.put("init1Ally2", new AutoPath("init1Ally2", Trajectories.init1Ally2));
+        trajectories.put("ally2Ally3", new AutoPath("ally2Ally3", Trajectories.ally2Ally3));
+        trajectories.put("init4Enemy1", new AutoPath("init4Enemy1", Trajectories.init4Enemy1));
+        trajectories.put("enemy1Shooting1", new AutoPath("enemy1Shooting1", Trajectories.enemy1Shooting1));
+        trajectories.put("init3Ren45", new AutoPath("init3Ren45", Trajectories.init3Ren45));
+        trajectories.put("ren45Pivot", new AutoPath("ren45Pivot", Trajectories.ren45Pivot));
+        trajectories.put("pivotRen3", new AutoPath("pivotRen3", Trajectories.pivotRen3));
     }
 }

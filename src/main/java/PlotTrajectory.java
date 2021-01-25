@@ -23,12 +23,23 @@ public class PlotTrajectory {
 
     public static void plotTrajectory() {
         Pose2d startPosition = new Pose2d();
-        Pose2d origin = new Pose2d(Units.inchesToMeters(30), Units.inchesToMeters(30), new Rotation2d(Units.degreesToRadians(0)));
-        Pose2d point2 = new Pose2d(Units.inchesToMeters(90), Units.inchesToMeters(60), new Rotation2d(Units.degreesToRadians(0)));
-        Pose2d point3 = new Pose2d(Units.inchesToMeters(210), Units.inchesToMeters(60), new Rotation2d(Units.degreesToRadians(0)));
-        Pose2d point4 = new Pose2d(Units.inchesToMeters(240), Units.inchesToMeters(30), new Rotation2d(Units.degreesToRadians(-120)));
-        Pose2d point5 = new Pose2d(Units.inchesToMeters(285), Units.inchesToMeters(4), new Rotation2d());
-        Pose2d point6 = new Pose2d(Units.inchesToMeters(285), Units.inchesToMeters(56), new Rotation2d(Units.degreesToRadians(120)));
+        Pose2d[] waypoints = {
+                new Pose2d(Units.inchesToMeters(30), Units.inchesToMeters(30), new Rotation2d(Units.degreesToRadians(0))),
+                new Pose2d(Units.inchesToMeters(90), Units.inchesToMeters(60), new Rotation2d(Units.degreesToRadians(60))),
+                new Pose2d(Units.inchesToMeters(120), Units.inchesToMeters(90), new Rotation2d(Units.degreesToRadians(0))),
+                new Pose2d(Units.inchesToMeters(240), Units.inchesToMeters(90), new Rotation2d(Units.degreesToRadians(0))),
+                new Pose2d(Units.inchesToMeters(270), Units.inchesToMeters(60), new Rotation2d(Units.degreesToRadians(-45))),
+                new Pose2d(Units.inchesToMeters(315), Units.inchesToMeters(34), new Rotation2d(Units.degreesToRadians(30))),
+                new Pose2d(Units.inchesToMeters(315), Units.inchesToMeters(86), new Rotation2d(Units.degreesToRadians(150))),
+                new Pose2d(Units.inchesToMeters(270), Units.inchesToMeters(60), new Rotation2d(Units.degreesToRadians(225))),
+                new Pose2d(Units.inchesToMeters(240), Units.inchesToMeters(30), new Rotation2d(Units.degreesToRadians(180))),
+                new Pose2d(Units.inchesToMeters(120), Units.inchesToMeters(30), new Rotation2d(Units.degreesToRadians(180))),
+                new Pose2d(Units.inchesToMeters(90), Units.inchesToMeters(60), new Rotation2d(Units.degreesToRadians(135))),
+                new Pose2d(Units.inchesToMeters(30), Units.inchesToMeters(90), new Rotation2d(Units.degreesToRadians(180)))
+        };
+
+        Trajectory[] trajectories = new Trajectory[waypoints.length - 1];
+        Trajectory[] transformedTrajectories = new Trajectory[waypoints.length - 1];
 
         TrajectoryConfig configA = new TrajectoryConfig(Units.feetToMeters(6), Units.feetToMeters(10));
         configA.setReversed(false);
@@ -38,9 +49,21 @@ public class PlotTrajectory {
 //        configA.addConstraint(new CentripetalAccelerationConstraint(0.75));
 
         Trajectory tempTrajectory;
-        Pose2d finalPose;
+        Pose2d finalPose = waypoints[0];
 
-        Trajectory startTo2Path = TrajectoryGenerator.generateTrajectory(startPosition,
+        for(int i = 0; i < waypoints.length - 1; i++) {
+            trajectories[i] = TrajectoryGenerator.generateTrajectory(waypoints[i],
+                    List.of(),
+                    waypoints[i + 1],
+                    configA);
+            Transform2d transform = finalPose.minus(trajectories[i].getInitialPose());
+            transformedTrajectories[i] = trajectories[i].transformBy(transform);
+
+            tempTrajectory = transformedTrajectories[i];
+            finalPose = tempTrajectory.getStates().get(tempTrajectory.getStates().size() - 1).poseMeters;
+        }
+
+        /*Trajectory startTo2Path = TrajectoryGenerator.generateTrajectory(startPosition,
                 List.of(),
                 point2,
                 configA);
@@ -70,6 +93,16 @@ public class PlotTrajectory {
         Transform2d point3To4Transform = finalPose.minus(point3To4Path.getInitialPose());
         Trajectory transformedPath3To4 = point3To4Path.transformBy(point3To4Transform);
 
+        Trajectory point4To5Path = TrajectoryGenerator.generateTrajectory(point4,
+                List.of(),
+                point5,
+                configA);
+
+        tempTrajectory = transformedPath3To4;
+        finalPose = tempTrajectory.getStates().get(tempTrajectory.getStates().size() - 1).poseMeters;
+
+        Transform2d point4To5Transform = finalPose.minus(point4To5Path.getInitialPose());
+        Trajectory transformedPath4To5 = point4To5Path.transformBy(point4To5Transform);*/
 //        Trajectory point4To5Path = TrajectoryGenerator.generateTrajectory(point4,
 //                List.of(),
 //                point5,
@@ -87,16 +120,8 @@ public class PlotTrajectory {
 //        Transform2d point6To7Transform = point4To5Path.getInitialPose().minus(point6);
 //        Trajectory transformedPath6To7 = transformedPath4To5.transformBy(point6To7Transform);
 
-        Trajectory[] trajectories = {
-                transformedPathstartTo2,
-                transformedPath2To3,
-                transformedPath3To4
-//                transformedPath4To5,
-//                transformedPath5To6,
-//                transformedPath6To7
-        };
 
-        plotTrajectories(trajectories);
+        plotTrajectories(transformedTrajectories);
     }
 
     public static void plotTrajectories(Trajectory... trajectories){
@@ -105,7 +130,7 @@ public class PlotTrajectory {
         double[][] time = new double[trajectories.length][];
 
         double lastTime = 0;
-        double sampleSize = 0.01;
+        double sampleSize = 0.02;
         for(int i = 0; i < trajectories.length; i++){
             double timestamp = 0;
             int idx = 0;
@@ -147,7 +172,11 @@ public class PlotTrajectory {
                 SeriesMarkers.SQUARE,
                 SeriesMarkers.TRAPEZOID,
                 SeriesMarkers.TRIANGLE_DOWN,
-                SeriesMarkers.TRIANGLE_UP
+                SeriesMarkers.TRIANGLE_UP,
+                SeriesMarkers.DIAMOND,
+                SeriesMarkers.CIRCLE,
+                SeriesMarkers.OVAL,
+                SeriesMarkers.SQUARE
         };
         Color[] colors = {
                 Color.BLACK,
@@ -156,7 +185,11 @@ public class PlotTrajectory {
                 Color.DARK_GRAY,
                 Color.GRAY,
                 Color.GREEN,
-                Color.LIGHT_GRAY
+                Color.LIGHT_GRAY,
+                Color.BLACK,
+                Color.BLUE,
+                Color.CYAN,
+                Color.DARK_GRAY
         };
 //        Color[] colors = {
 //            Color.getHSBColor(30, (float) 100.0, (float)   0.0),
